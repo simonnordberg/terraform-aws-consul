@@ -329,7 +329,6 @@ EOF
   $rpc_encryption_configuration
   $autopilot_configuration
   "telemetry": {
-    "disable_compat_1.9": true
   },
   "ui_config": {
     "enabled": $ui_config_enabled
