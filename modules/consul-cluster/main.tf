@@ -16,13 +16,13 @@ terraform {
 resource "aws_autoscaling_group" "autoscaling_group" {
   launch_configuration = aws_launch_configuration.launch_configuration.name
 
+  name_prefix         = var.cluster_name
   availability_zones  = var.availability_zones
   vpc_zone_identifier = var.subnet_ids
 
-  # Run a fixed number of instances in the ASG
-  min_size             = var.cluster_size
-  max_size             = var.cluster_size
-  desired_capacity     = var.cluster_size
+  min_size             = var.min_size
+  max_size             = var.max_size
+  desired_capacity     = var.desired_capacity
   termination_policies = [var.termination_policies]
 
   health_check_type         = var.health_check_type

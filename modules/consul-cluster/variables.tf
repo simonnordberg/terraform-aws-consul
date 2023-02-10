@@ -38,10 +38,19 @@ variable "user_data" {
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "cluster_size" {
-  description = "The number of nodes to have in the Consul cluster. We strongly recommended that you use either 3 or 5."
+variable "min_size" {
+  description = "The minimum number of nodes to have in the cluster. We strongly recommended that you use either 3 or 5."
   type        = number
-  default     = 3
+}
+
+variable "max_size" {
+  description = "The maximum number of nodes to have in the cluster. We strongly recommended that you use either 3 or 5."
+  type        = number
+}
+
+variable "desired_capacity" {
+  description = "The desired number of nodes to have in the cluster. We strongly recommended that you use either 3 or 5."
+  type        = number
 }
 
 variable "cluster_tag_key" {
