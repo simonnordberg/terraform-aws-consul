@@ -292,6 +292,24 @@ EOF
 EOF
 )
 
+  local ports_configuration
+  ports_configuration=$(cat <<EOF
+"ports": {
+  "grpc": 8502
+},
+EOF
+)
+
+  if [[ "$server" == "true" ]]; then
+    local connect_configuration
+    connect_configuration=$(cat <<EOF
+"connect": {
+  "enabled": true
+}
+EOF
+)
+  fi
+
   local gossip_encryption_configuration=""
   if [[ "$enable_gossip_encryption" == "true" && -n "$gossip_encryption_key" ]]; then
     log_info "Creating gossip encryption configuration"
