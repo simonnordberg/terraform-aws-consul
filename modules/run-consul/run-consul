@@ -295,7 +295,8 @@ EOF
   local ports_configuration
   ports_configuration=$(cat <<EOF
 "ports": {
-  "grpc": 8502
+  "grpc": 8502,
+  "grpc_tls": 8503
 },
 EOF
 )
@@ -305,7 +306,7 @@ EOF
     connect_configuration=$(cat <<EOF
 "connect": {
   "enabled": true
-}
+},
 EOF
 )
   fi
@@ -346,6 +347,8 @@ EOF
   $gossip_encryption_configuration
   $rpc_encryption_configuration
   $autopilot_configuration
+  $connect_configuration
+  $ports_configuration
   "telemetry": {
   },
   "ui_config": {
